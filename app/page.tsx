@@ -119,21 +119,21 @@ export default function HieroglyphicsConverter() {
   }
 
   const ResultCard = ({ result, icon }: { result: ConversionResult; icon: React.ReactNode }) => (
-    <Card className="border-2 border-yellow-400/30 bg-gradient-to-br from-white via-yellow-50/50 to-yellow-100/30 shadow-2xl backdrop-blur-sm">
-      <CardHeader className="pb-4 md:pb-6 bg-gradient-to-r from-yellow-400/10 via-yellow-300/20 to-yellow-400/10 border-b border-yellow-400/20 p-4 md:p-8">
-        <CardTitle className="flex items-center gap-2 md:gap-3 text-xl md:text-2xl font-dramatic text-yellow-900 text-majestic tracking-wide">
+    <Card className="border-2 border-cyan-400/30 bg-gradient-to-br from-white via-cyan-50/50 to-cyan-100/30 shadow-2xl backdrop-blur-sm">
+      <CardHeader className="pb-4 md:pb-6 bg-gradient-to-r from-cyan-400/10 via-cyan-300/20 to-cyan-400/10 border-b border-cyan-400/20 p-4 md:p-8">
+        <CardTitle className="flex items-center gap-2 md:gap-3 text-xl md:text-2xl font-dramatic text-cyan-900 text-majestic tracking-wide">
           {icon}
           <span className="font-serif text-base sm:text-xl md:text-2xl">{educationalContent[result.style].title}</span>
         </CardTitle>
-        <CardDescription className="text-sm md:text-base text-yellow-800/80 font-medium leading-relaxed">
+        <CardDescription className="text-sm md:text-base text-cyan-800/80 font-medium leading-relaxed">
           {educationalContent[result.style].description}
         </CardDescription>
         <Badge
           variant="secondary"
           className={`w-fit text-xs md:text-sm font-bold px-3 md:px-4 py-1 md:py-2 ${
             result.style === "phonetic"
-              ? "bg-gradient-to-r from-yellow-600 to-yellow-700 text-white shadow-lg"
-              : "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg"
+              ? "bg-gradient-to-r from-cyan-600 to-cyan-700 text-white shadow-lg"
+              : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg"
           }`}
         >
           {educationalContent[result.style].accuracy}
@@ -142,24 +142,24 @@ export default function HieroglyphicsConverter() {
       <CardContent className="space-y-4 md:space-y-6 p-4 md:p-8">
         {/* Hieroglyphic Output */}
         <div className="relative">
-          <div className="min-h-[100px] md:min-h-[120px] p-4 md:p-8 bg-gradient-to-br from-yellow-50 via-white to-yellow-100/50 border-3 border-dashed border-yellow-400/40 rounded-xl flex items-center justify-center shadow-inner">
+          <div className="min-h-[100px] md:min-h-[120px] p-4 md:p-8 bg-gradient-to-br from-cyan-50 via-white to-cyan-100/50 border-3 border-dashed border-cyan-400/40 rounded-xl flex items-center justify-center shadow-inner">
             <div className="text-center">
               <div
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-relaxed tracking-widest select-all cursor-pointer hover:bg-yellow-200/30 p-2 md:p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 break-all"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-relaxed tracking-widest select-all cursor-pointer hover:bg-cyan-200/30 p-2 md:p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 break-all"
                 onClick={() => copyToClipboard(result.hieroglyphs, result.style)}
                 title="Click to copy"
                 style={{ fontFamily: "serif" }}
               >
                 {result.hieroglyphs}
               </div>
-              <p className="text-xs md:text-sm text-yellow-700/70 mt-2 md:mt-3 font-semibold tracking-wide">
+              <p className="text-xs md:text-sm text-cyan-700/70 mt-2 md:mt-3 font-semibold tracking-wide">
                 ✨ Click the hieroglyphics above to copy ✨
               </p>
             </div>
           </div>
           <Button
             onClick={() => copyToClipboard(result.hieroglyphs, result.style)}
-            className="absolute top-2 md:top-3 right-2 md:right-3 h-6 w-6 md:h-10 md:w-10 p-0 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+            className="absolute top-2 md:top-3 right-2 md:right-3 h-6 w-6 md:h-10 md:w-10 p-0 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
             title="Copy to clipboard"
           >
             <Copy className="w-3 h-3 md:w-5 md:h-5" />
@@ -168,34 +168,34 @@ export default function HieroglyphicsConverter() {
 
         {/* Breakdown Table */}
         <div className="space-y-3 md:space-y-4">
-          <h4 className="font-dramatic text-lg md:text-xl text-yellow-900 text-majestic tracking-wide">
+          <h4 className="font-dramatic text-lg md:text-xl text-cyan-900 text-majestic tracking-wide">
             Symbol Breakdown:
           </h4>
-          <div className="max-h-64 overflow-y-auto border-2 border-yellow-400/30 rounded-xl shadow-inner bg-white/80">
+          <div className="max-h-64 overflow-y-auto border-2 border-cyan-400/30 rounded-xl shadow-inner bg-white/80">
             <div className="overflow-x-auto">
               <table className="w-full text-sm md:text-base min-w-[400px]">
-                <thead className="bg-gradient-to-r from-yellow-400/20 to-yellow-300/20 sticky top-0 border-b border-yellow-400/30">
+                <thead className="bg-gradient-to-r from-cyan-400/20 to-cyan-300/20 sticky top-0 border-b border-cyan-400/30">
                   <tr>
-                    <th className="text-left p-2 md:p-4 font-bold text-yellow-900 tracking-wide">Input</th>
-                    <th className="text-left p-2 md:p-4 font-bold text-yellow-900 tracking-wide">Symbol</th>
-                    <th className="text-left p-2 md:p-4 font-bold text-yellow-900 tracking-wide">Description</th>
+                    <th className="text-left p-2 md:p-4 font-bold text-cyan-900 tracking-wide">Input</th>
+                    <th className="text-left p-2 md:p-4 font-bold text-cyan-900 tracking-wide">Symbol</th>
+                    <th className="text-left p-2 md:p-4 font-bold text-cyan-900 tracking-wide">Description</th>
                     {result.style === "phonetic" && (
-                      <th className="text-left p-2 md:p-4 font-bold text-yellow-900 tracking-wide">Gardiner</th>
+                      <th className="text-left p-2 md:p-4 font-bold text-cyan-900 tracking-wide">Gardiner</th>
                     )}
                   </tr>
                 </thead>
                 <tbody>
                   {result.breakdown.map((item, index) => (
-                    <tr key={index} className="border-t border-yellow-400/20 hover:bg-yellow-50/50 transition-colors">
-                      <td className="p-2 md:p-4 font-mono font-bold text-yellow-900 text-base md:text-lg">
+                    <tr key={index} className="border-t border-cyan-400/20 hover:bg-cyan-50/50 transition-colors">
+                      <td className="p-2 md:p-4 font-mono font-bold text-cyan-900 text-base md:text-lg">
                         {item.input}
                       </td>
                       <td className="p-2 md:p-4 text-2xl md:text-3xl font-mono">{item.output}</td>
-                      <td className="p-2 md:p-4 text-xs md:text-sm text-yellow-800/80 font-medium">
+                      <td className="p-2 md:p-4 text-xs md:text-sm text-cyan-800/80 font-medium">
                         {item.description}
                       </td>
                       {result.style === "phonetic" && (
-                        <td className="p-2 md:p-4 text-xs md:text-sm font-mono text-yellow-700 font-semibold">
+                        <td className="p-2 md:p-4 text-xs md:text-sm font-mono text-cyan-700 font-semibold">
                           {item.gardiner || "-"}
                         </td>
                       )}
@@ -208,8 +208,8 @@ export default function HieroglyphicsConverter() {
         </div>
 
         {/* Usage Examples */}
-        <div className="text-xs md:text-sm text-yellow-800/80 bg-yellow-50/50 p-3 md:p-4 rounded-lg border border-yellow-400/20">
-          <p className="font-bold mb-2 text-yellow-900 tracking-wide">Best used for:</p>
+        <div className="text-xs md:text-sm text-cyan-800/80 bg-cyan-50/50 p-3 md:p-4 rounded-lg border border-cyan-400/20">
+          <p className="font-bold mb-2 text-cyan-900 tracking-wide">Best used for:</p>
           <ul className="list-disc list-inside space-y-1 font-medium">
             {educationalContent[result.style].uses.map((use, index) => (
               <li key={index}>{use}</li>
@@ -221,31 +221,31 @@ export default function HieroglyphicsConverter() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-yellow-100/80">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-cyan-100/80">
       <div className="container mx-auto px-3 md:px-4 py-8 md:py-12 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">
           <div className="flex items-center justify-center gap-2 md:gap-4 mb-4 md:mb-6">
-            <Eye className="w-8 h-8 md:w-12 md:h-12 text-yellow-600 drop-shadow-lg" />
+            <Eye className="w-8 h-8 md:w-12 md:h-12 text-cyan-600 drop-shadow-lg" />
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-dramatic text-royal text-majestic drop-shadow-2xl">
               ANCIENT EGYPTIAN
             </h1>
-            <Eye className="w-8 h-8 md:w-12 md:h-12 text-yellow-600 drop-shadow-lg" />
+            <Eye className="w-8 h-8 md:w-12 md:h-12 text-cyan-600 drop-shadow-lg" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-dramatic text-yellow-800 text-majestic tracking-wide">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-dramatic text-cyan-800 text-majestic tracking-wide">
             HIEROGLYPHICS CONVERTER
           </h2>
 
           {/* Prominent CTA bar (top) */}
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <Link href="/videos">
-              <Button className="h-10 md:h-12 px-4 md:px-6 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-extrabold shadow-lg hover:shadow-xl">
+              <Button className="h-10 md:h-12 px-4 md:px-6 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-extrabold shadow-lg hover:shadow-xl">
                 <Youtube className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Video Library
               </Button>
             </Link>
             <Link href="/gallery">
-              <Button variant="outline" className="h-10 md:h-12 px-4 md:px-6 border-2 border-yellow-500/60 text-yellow-900 font-extrabold hover:bg-yellow-100/50">
+              <Button variant="outline" className="h-10 md:h-12 px-4 md:px-6 border-2 border-cyan-500/60 text-cyan-900 font-extrabold hover:bg-cyan-100/50">
                 <Images className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Photo Gallery
               </Button>
@@ -253,7 +253,7 @@ export default function HieroglyphicsConverter() {
           </div>
 
           {/* Top Rotating Facts */}
-          <div className="mt-5 text-base sm:text-lg md:text-xl text-yellow-700 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide min-h-[4rem] md:min-h-[3rem] flex items-center justify-center px-4">
+          <div className="mt-5 text-base sm:text-lg md:text-xl text-cyan-700 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide min-h-[4rem] md:min-h-[3rem] flex items-center justify-center px-4">
             <div
               key={currentFact}
               className="animate-fade-in text-center"
@@ -265,13 +265,13 @@ export default function HieroglyphicsConverter() {
         </div>
 
         {/* Input Section */}
-        <Card className="mb-12 shadow-2xl border-2 border-yellow-400/40 bg-gradient-to-br from-white via-yellow-50/30 to-white">
-          <CardHeader className="text-center bg-gradient-to-r from-yellow-400/20 via-yellow-300/30 to-yellow-400/20 border-b-2 border-yellow-400/30">
-            <CardTitle className="flex items-center gap-3 text-2xl font-dramatic text-yellow-900 text-majestic tracking-wide">
-              <Sparkles className="w-8 h-8 text-yellow-600" />
+        <Card className="mb-12 shadow-2xl border-2 border-cyan-400/40 bg-gradient-to-br from-white via-cyan-50/30 to-white">
+          <CardHeader className="text-center bg-gradient-to-r from-cyan-400/20 via-cyan-300/30 to-cyan-400/20 border-b-2 border-cyan-400/30">
+            <CardTitle className="flex items-center gap-3 text-2xl font-dramatic text-cyan-900 text-majestic tracking-wide">
+              <Sparkles className="w-8 h-8 text-cyan-600" />
               ENTER YOUR NAME
             </CardTitle>
-            <CardDescription className="text-lg text-yellow-800/80 font-medium tracking-wide">
+            <CardDescription className="text-lg text-cyan-800/80 font-medium tracking-wide">
               
             </CardDescription>
           </CardHeader>
@@ -282,13 +282,13 @@ export default function HieroglyphicsConverter() {
                 placeholder="Enter your name here..."
                 value={inputName}
                 onChange={(e) => setInputName(e.target.value)}
-                className="text-lg md:text-xl h-10 md:h-12 border-2 border-yellow-400/50 focus:border-yellow-500 bg-white/80 font-semibold tracking-wide placeholder:text-yellow-600/60 text-yellow-900"
+                className="text-lg md:text-xl h-10 md:h-12 border-2 border-cyan-400/50 focus:border-cyan-500 bg-white/80 font-semibold tracking-wide placeholder:text-cyan-600/60 text-cyan-900"
               />
               {inputName && (
                 <Button
                   variant="outline"
                   onClick={() => setInputName("")}
-                  className="h-10 md:h-12 px-4 md:px-6 border-2 border-yellow-400/50 hover:bg-yellow-100/50 text-yellow-800 font-bold tracking-wide whitespace-nowrap"
+                  className="h-10 md:h-12 px-4 md:px-6 border-2 border-cyan-400/50 hover:bg-cyan-100/50 text-cyan-800 font-bold tracking-wide whitespace-nowrap"
                 >
                   Clear
                 </Button>
@@ -309,8 +309,8 @@ export default function HieroglyphicsConverter() {
                 overflow-x-auto
                 h-10 md:h-12
                 p-1
-                bg-gradient-to-r from-yellow-400/30 to-yellow-300/30
-                border border-yellow-400/40
+                bg-gradient-to-r from-cyan-400/30 to-cyan-300/30
+                border border-cyan-400/40
                 rounded-md
               "
             >
@@ -324,8 +324,8 @@ export default function HieroglyphicsConverter() {
                   h-full min-h-10
                   rounded-sm
                   data-[state=active]:bg-gradient-to-r
-                  data-[state=active]:from-yellow-500
-                  data-[state=active]:to-yellow-600
+                  data-[state=active]:from-cyan-500
+                  data-[state=active]:to-cyan-600
                   data-[state=active]:text-white
                   data-[state=active]:shadow-lg
                 "
@@ -344,8 +344,8 @@ export default function HieroglyphicsConverter() {
                   h-full min-h-10
                   rounded-sm
                   data-[state=active]:bg-gradient-to-r
-                  data-[state=active]:from-yellow-500
-                  data-[state=active]:to-yellow-600
+                  data-[state=active]:from-cyan-500
+                  data-[state=active]:to-cyan-600
                   data-[state=active]:text-white
                   data-[state=active]:shadow-lg
                 "
@@ -357,75 +357,75 @@ export default function HieroglyphicsConverter() {
 
             <TabsContent value="cartouche" className="mt-2">
               {isConverting ? (
-                <Card className="border-2 border-yellow-400/30 bg-white/80">
+                <Card className="border-2 border-cyan-400/30 bg-white/80">
                   <CardContent className="flex items-center justify-center p-16">
-                    <div className="flex items-center gap-4 text-yellow-700 text-xl font-semibold">
-                      <div className="w-6 h-6 border-3 border-yellow-600 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="flex items-center gap-4 text-cyan-700 text-xl font-semibold">
+                      <div className="w-6 h-6 border-3 border-cyan-600 border-t-transparent rounded-full animate-spin"></div>
                       Converting to hieroglyphics...
                     </div>
                   </CardContent>
                 </Card>
               ) : cartoucheResult ? (
-                <ResultCard result={cartoucheResult} icon={<Crown className="w-7 h-7 text-yellow-600" />} />
+                <ResultCard result={cartoucheResult} icon={<Crown className="w-7 h-7 text-cyan-600" />} />
               ) : null}
             </TabsContent>
 
             <TabsContent value="phonetic" className="mt-8">
               {isConverting ? (
-                <Card className="border-2 border-yellow-400/30 bg-white/80">
+                <Card className="border-2 border-cyan-400/30 bg-white/80">
                   <CardContent className="flex items-center justify-center p-16">
-                    <div className="flex items-center gap-4 text-yellow-700 text-xl font-semibold">
-                      <div className="w-6 h-6 border-3 border-yellow-600 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="flex items-center gap-4 text-cyan-700 text-xl font-semibold">
+                      <div className="w-6 h-6 border-3 border-cyan-600 border-t-transparent rounded-full animate-spin"></div>
                       Converting to hieroglyphics...
                     </div>
                   </CardContent>
                 </Card>
               ) : phoneticResult ? (
-                <ResultCard result={phoneticResult} icon={<Scroll className="w-7 h-7 text-yellow-600" />} />
+                <ResultCard result={phoneticResult} icon={<Scroll className="w-7 h-7 text-cyan-600" />} />
               ) : null}
             </TabsContent>
           </Tabs>
         )}
 
         {/* Educational Information */}
-        <Card className="border-2 border-yellow-400/40 bg-gradient-to-br from-white via-yellow-50/30 to-white shadow-2xl">
-          <CardHeader className="bg-gradient-to-r from-yellow-400/20 via-yellow-300/30 to-yellow-400/20 border-b-2 border-yellow-400/30">
-            <CardTitle className="flex items-center gap-3 text-2xl font-dramatic text-yellow-900 text-majestic tracking-wide">
-              <BookOpen className="w-7 h-7 text-yellow-600" />
+        <Card className="border-2 border-cyan-400/40 bg-gradient-to-br from-white via-cyan-50/30 to-white shadow-2xl">
+          <CardHeader className="bg-gradient-to-r from-cyan-400/20 via-cyan-300/30 to-cyan-400/20 border-b-2 border-cyan-400/30">
+            <CardTitle className="flex items-center gap-3 text-2xl font-dramatic text-cyan-900 text-majestic tracking-wide">
+              <BookOpen className="w-7 h-7 text-cyan-600" />
               WHICH STYLE SHOULD I CHOOSE?
             </CardTitle>
           </CardHeader>
           <CardContent className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 text-sm md:text-base p-4 md:p-8">
-            <div className="space-y-3 md:space-y-4 bg-yellow-50/50 p-4 md:p-6 rounded-xl border border-yellow-400/20">
+            <div className="space-y-3 md:space-y-4 bg-cyan-50/50 p-4 md:p-6 rounded-xl border border-cyan-400/20">
               <div className="flex items-center gap-2 md:gap-3">
-                <Crown className="w-5 h-5 md:w-6 md:h-6 text-yellow-600" />
-                <h4 className="font-dramatic text-lg md:text-xl text-yellow-900 text-majestic tracking-wide">
+                <Crown className="w-5 h-5 md:w-6 md:h-6 text-cyan-600" />
+                <h4 className="font-dramatic text-lg md:text-xl text-cyan-900 text-majestic tracking-wide">
                   Cartouche
                 </h4>
               </div>
-              <p className="text-yellow-800/90 font-medium leading-relaxed">
+              <p className="text-cyan-800/90 font-medium leading-relaxed">
                 <strong>Mapping each letter to a symbol!</strong> This style gives each letter of your name its own
                 beautiful hieroglyphic symbol. 
               </p>
-              <div className="text-xs md:text-sm text-yellow-700/80 bg-white/60 p-3 rounded-lg border border-yellow-400/20">
-                <strong className="text-yellow-900">Example:</strong> -HEBA- becomes H-E-B-A → 𓉔𓇋𓃀𓄿 (each letter gets
+              <div className="text-xs md:text-sm text-cyan-700/80 bg-white/60 p-3 rounded-lg border border-cyan-400/20">
+                <strong className="text-cyan-900">Example:</strong> -HEBA- becomes H-E-B-A → 𓉔𓇋𓃀𓄿 (each letter gets
                 its own symbol)
               </div>
             </div>
 
-            <div className="space-y-3 md:space-y-4 bg-yellow-50/50 p-4 md:p-6 rounded-xl border border-yellow-400/20">
+            <div className="space-y-3 md:space-y-4 bg-cyan-50/50 p-4 md:p-6 rounded-xl border border-cyan-400/20">
               <div className="flex items-center gap-2 md:gap-3">
-                <Scroll className="w-5 h-5 md:w-6 md:h-6 text-yellow-600" />
-                <h4 className="font-dramatic text-lg md:text-xl text-yellow-900 text-majestic tracking-wide">
+                <Scroll className="w-5 h-5 md:w-6 md:h-6 text-cyan-600" />
+                <h4 className="font-dramatic text-lg md:text-xl text-cyan-900 text-majestic tracking-wide">
                   Phonetic
                 </h4>
               </div>
-              <p className="text-yellow-800/90 font-medium leading-relaxed">
+              <p className="text-cyan-800/90 font-medium leading-relaxed">
                 <strong>How ancient Egyptians really wrote!</strong> This follows the actual rules they used 3,000 years
                 ago. Vowels are skipped and only consonant sounds matter.
               </p>
-              <div className="text-xs md:text-sm text-yellow-700/80 bg-white/60 p-3 rounded-lg border border-yellow-400/20">
-                <strong className="text-yellow-900">Example:</strong> -HEBA- becomes [h-b] → 𓉔𓃀 (vowels E and A are
+              <div className="text-xs md:text-sm text-cyan-700/80 bg-white/60 p-3 rounded-lg border border-cyan-400/20">
+                <strong className="text-cyan-900">Example:</strong> -HEBA- becomes [h-b] → 𓉔𓃀 (vowels E and A are
                 skipped)
               </div>
             </div>
@@ -434,7 +434,7 @@ export default function HieroglyphicsConverter() {
 
         {/* Bottom Rotating Facts (mirrors the top) */}
         <div className="text-center mt-8 md:mt-12">
-          <div className="text-base sm:text-lg md:text-xl text-yellow-700 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide min-h-[4rem] md:min-h-[3rem] flex items-center justify-center px-4">
+          <div className="text-base sm:text-lg md:text-xl text-cyan-700 max-w-4xl mx-auto font-medium leading-relaxed tracking-wide min-h-[4rem] md:min-h-[3rem] flex items-center justify-center px-4">
             <div
               key={currentFact}
               className="animate-fade-in text-center"
